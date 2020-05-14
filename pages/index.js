@@ -40,8 +40,11 @@ export default function Home() {
       </Head>
       <main style={{ padding: '10px'}}>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Demo App</a>
+          Welcome to <a href="https://github.com/sajan02/assignment-project-railofy">Demo App</a>
         </h1>
+        <div className="col-12 row app-description">
+          <h3>You can search for the movies by selecting the <strong>type</strong> and by providing the <strong>search</strong> in the search bar.</h3>
+        </div> 
         <div className='col-12 row'>
           <div className='col-4'>
             <Select options={TYPES} name='type' value={type}
