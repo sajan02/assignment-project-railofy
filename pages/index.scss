@@ -213,7 +213,7 @@ h1, h3 {
 
 .custom-container {
     margin: 0 auto;
-    min-width: 780px;
+    min-width: 300px;
     max-width: 1020px;
     height: 500px;
     background: #F0F0ED;
@@ -372,7 +372,7 @@ fieldset, label { margin: 0; padding: 0; }
 .rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
 
 .loading-container {
-    min-width: 780px;
+    min-width: 300px;
     max-width: 1020px;
     margin: auto;
     height: 100px;
@@ -384,7 +384,7 @@ fieldset, label { margin: 0; padding: 0; }
 }
 
 .btn-container {
-    min-width: 780px;
+    min-width: 300px;
     max-width: 1020px;
     margin: auto;
     padding: 10px;
@@ -398,6 +398,7 @@ fieldset, label { margin: 0; padding: 0; }
 }
 
 @media only screen and (max-width: 768px) {
+
   .custom-container {
     position: relative;
     display: flex;
