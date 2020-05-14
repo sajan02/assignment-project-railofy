@@ -1,50 +1,69 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import { CustomCard, Select } from '../component';
+import { getItems } from '../service/omdb.service';
+import { debounce } from '../util';
+
+const TYPES = [
+  { label: 'All', value: '' },
+  { label: 'Movie', value: 'movie'},
+  { label: 'Series', value: 'series'},
+  { label: 'Episode', value: 'episode'},
+]
 
 export default function Home() {
+
+  const [type, setType] = React.useState(null);
+  const [search, setSearch] = React.useState('');
+  const [searchResult, setSearchResult] = React.useState([]);
+
+  const getSearchResult = () => {
+    let queryString = `type=${type ? type.value : ''}&s=${search}`;
+    getItems(queryString).then(data => {
+        setSearchResult(data);
+    });
+  }
+
+  const debounceSearch = debounce(getSearchResult, 1000);
+
+  React.useEffect(() => {
+    debounceSearch();
+  }, [search, type])
+
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Demo Application</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous"></link>
       </Head>
-
-      <main>
+      <main style={{ padding: '10px'}}>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href="https://nextjs.org">Demo App</a>
         </h1>
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/zeit/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        <div className='col-12 row'>
+          <div className='col-4'>
+            <Select options={TYPES} name='type' value={type}
+            onChange={setType}
+            options={TYPES} placeholder={'Types...'}/>
+          </div>
+          <div className='col-8'>
+          <input
+           placeholder='Search...'
+           value={search}
+           onChange={(e) => setSearch(e.target.value)}
+            type="text"
+            className="form-control search-input"
+            aria-label="Text input with dropdown button"/>
+          </div>
+        </div>
+        <div className='col-12 row'>
+          {
+            searchResult.map(datum => {
+              return <CustomCard {...datum}/>
+            })
+          }
         </div>
       </main>
 
