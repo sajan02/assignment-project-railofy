@@ -215,14 +215,14 @@ h1, h3 {
     margin: 0 auto;
     min-width: 780px;
     max-width: 1020px;
-    height: 640px;
+    height: 500px;
     background: #F0F0ED;
     border-radius: 5px;
     position: relative;
 }
 
 .hero {
-  height: 342px;  
+  height: 300px;  
   margin:0;
   position: relative;
   overflow: hidden;
@@ -238,7 +238,7 @@ h1, h3 {
   position:absolute;
   overflow: hidden;
   top:0; left:0;
-  background-image: linear-gradient(to right, #badaf5, #2d4e68);
+  background-image: linear-gradient(to right, #badaf5, black);
   z-index:-1;
  
   transform: skewY(-2.2deg);
@@ -251,7 +251,7 @@ h1, h3 {
 
 .cover {
   position: absolute;
-  top: 160px;
+  top: 15px;
   left: 40px;
   z-index: 2;
 }
@@ -291,11 +291,10 @@ h1, h3 {
     height: 200px;
     font-size: 16px;
     line-height: 26px;
-    color: #B1B0AC;
+    color: $black;
     position: absolute;
-    background-image: linear-gradient(to right, $regal-blue, $san-juan);
     left: 370px;
-    top: 370px;
+    top: 300px;
     display: flex;
     flex-direction: column;
     width: 60%;
@@ -389,14 +388,11 @@ fieldset, label { margin: 0; padding: 0; }
     max-width: 1020px;
     margin: auto;
     padding: 10px;
-    background-image: linear-gradient(to right, $regal-blue, $san-juan);
+    background-image: linear-gradient(to right, $regal-blue, black);
 
-    button {
-        border: none;
-        padding: 10px;
-        border-radius: 10px;
-        background-color: white;
-        font-size: 16px;
-        cursor: pointer;
+    a {
+      color: black;
+      font-size: larger;
+      text-decoration: underline;
     }
 }
