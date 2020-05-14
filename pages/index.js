@@ -72,12 +72,12 @@ export default function Home() {
 
       <footer>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="http://www.omdbapi.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
           Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
+          <img src="/Omdb-logo.png" alt="Vercel Logo" className="logo" />
         </a>
       </footer>
 
@@ -111,6 +111,8 @@ export default function Home() {
 
         footer img {
           margin-left: 0.5rem;
+          width: 90px;
+          height: 50px;
         }
 
         footer a {
