@@ -396,3 +396,34 @@ fieldset, label { margin: 0; padding: 0; }
       text-decoration: underline;
     }
 }
+
+@media only screen and (max-width: 600px) {
+  .custom-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient(to right, $regal-blue, black);
+    height: auto;
+  }
+  .cover {
+    position: relative;
+  }
+  .hero {
+    height: auto;
+    &::before {
+      background: none;
+      width: unset;
+      height: unset;
+    }
+  }
+  .details {
+    padding: 35px 35px;
+  }
+  .description {
+    position: relative;
+    top: unset;
+    left: unset;
+  }
+}
