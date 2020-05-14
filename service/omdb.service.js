@@ -1,4 +1,4 @@
-const API_URL = 'http://www.omdbapi.com/?apikey=2f50d781';
+const API_URL = 'https://www.omdbapi.com/?apikey=2f50d781';
 
 export const getItems = async (query) => {
     try {
