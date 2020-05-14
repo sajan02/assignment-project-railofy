@@ -46,12 +46,12 @@ export default function Home() {
           <h3>You can search for the movies by selecting the <strong>type</strong> and by providing the <strong>search</strong> in the search bar.</h3>
         </div> 
         <div className='col-12 row'>
-          <div className='col-4'>
+          <div className='col-5'>
             <Select options={TYPES} name='type' value={type}
             onChange={setType}
             options={TYPES} placeholder={'Types...'}/>
           </div>
-          <div className='col-8'>
+          <div className='col-7'>
           <input
            placeholder='Search...'
            value={search}

@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function index(props) {
     let { Title, Year, imdbID, Type, Poster} = props;
     return (
-  <div className="custom-card card col-md-6 col-sm-12">
+  <div className="custom-card card col-md-6 col-sm-12 col-12">
     <div className="wrapper" style={{
         background : `url(${Poster}) center / cover no-repeat`,
     }}>
